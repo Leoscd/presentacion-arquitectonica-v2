@@ -438,6 +438,68 @@ textarea.form-control { resize: vertical; min-height: 120px; }
   .sector-panel { grid-template-columns: 1fr; }
   .resumen-cards { grid-template-columns: 1fr; }
 }
+
+/* ── LOADER CINEMATOGRAFICO (v2) ── */
+#loader {
+  position: fixed;
+  inset: 0;
+  background: var(--fondo);
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+#loader.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+.loader-marca {
+  font-family: var(--fuente-titulo);
+  font-size: clamp(40px, 7vw, 80px);
+  font-weight: 300;
+  color: var(--acento);
+  letter-spacing: -1px;
+  opacity: 0;
+  animation: loader-reveal 1.6s ease forwards;
+}
+.loader-eyebrow {
+  font-size: 9px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--texto-dim);
+  margin-bottom: 18px;
+  opacity: 0;
+  animation: loader-reveal 1.6s 0.2s ease forwards;
+}
+@keyframes loader-reveal {
+  0% { opacity: 0; transform: translateY(10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* ── CURSOR CUSTOM (v2) ── */
+body { cursor: none; }
+@media (max-width: 900px) { body { cursor: auto; } }
+#custom-cursor {
+  position: fixed;
+  width: 24px; height: 24px;
+  border: 1.5px solid var(--acento);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  transition: width 0.2s, height 0.2s, background 0.2s, border-color 0.2s;
+  mix-blend-mode: difference;
+}
+#custom-cursor.hover {
+  width: 44px; height: 44px;
+  background: var(--acento);
+  border-color: var(--acento);
+  mix-blend-mode: normal;
+}
+@media (max-width: 900px) { #custom-cursor { display: none; } }
 </style>
 
 <!--
@@ -521,6 +583,12 @@ textarea.form-control { resize: vertical; min-height: 120px; }
 </script>
 </head>
 <body>
+
+<div id="loader" aria-hidden="true">
+  <div class="loader-eyebrow">Proyecto Arquitectónico</div>
+  <div class="loader-marca">Casa Rogeris</div>
+</div>
+<div id="custom-cursor" aria-hidden="true"></div>
 
 <nav id="nav">
   <div class="nav-brand">Casa <em>Rogeris</em></div>
@@ -772,6 +840,35 @@ if (track) {
   track.addEventListener('mousemove', e => {
     if (!isDragging) return; e.preventDefault();
     const x = e.pageX - track.offsetLeft; track.scrollLeft = scrollLeft - (x - startX) * 1.4;
+  });
+}
+
+// ── v2: LOADER + CURSOR (Fase 2) ──
+
+// Loader: ocultar despues de 2.2s
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    const loader = document.getElementById('loader');
+    if (loader) {
+      loader.classList.add('hidden');
+      setTimeout(() => loader.remove(), 900);
+    }
+  }, 2200);
+});
+
+// Cursor: seguir mouse y agrandarse en hover
+const cursor = document.getElementById('custom-cursor');
+if (cursor && window.matchMedia('(min-width: 901px)').matches) {
+  document.addEventListener('mousemove', e => {
+    cursor.style.left = e.clientX + 'px';
+    cursor.style.top = e.clientY + 'px';
+  });
+  const interactivos = 'a, button, .hotspot, .tab-btn, .form-control, .nav-cta, .btn-primary';
+  document.addEventListener('mouseover', e => {
+    if (e.target.closest(interactivos)) cursor.classList.add('hover');
+  });
+  document.addEventListener('mouseout', e => {
+    if (e.target.closest(interactivos)) cursor.classList.remove('hover');
   });
 }
 </script>
