@@ -9,27 +9,27 @@
 <style>
 /* ── VARIABLES ── */
 :root {
-  --gold: #C9A84C;
-  --gold-dim: rgba(201,168,76,0.12);
-  --gold-mid: rgba(201,168,76,0.35);
-  --dark:   #080808;
-  --dark-2: #0f0f0f;
-  --dark-3: #161616;
-  --dark-4: #1e1e1e;
-  --light:  #ede9e0;
-  --light-dim: rgba(237,233,224,0.55);
-  --text:   #cac6be;
-  --serif: 'Cormorant Garamond', Georgia, serif;
-  --mono:  'DM Mono', monospace;
+  --acento: #C9A84C;
+  --acento-dim: rgba(201,168,76,0.12);
+  --acento-mid: rgba(201,168,76,0.35);
+  --fondo:   #080808;
+  --fondo-2: #0f0f0f;
+  --fondo-3: #161616;
+  --fondo-4: #1e1e1e;
+  --acento-secundario:  #ede9e0;
+  --texto-dim: rgba(237,233,224,0.55);
+  --texto:   #cac6be;
+  --fuente-titulo: 'Cormorant Garamond', Georgia, serif;
+  --fuente-cuerpo:  'DM Mono', monospace;
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; font-size: 16px; }
 
 body {
-  background: var(--dark);
-  color: var(--text);
-  font-family: var(--mono);
+  background: var(--fondo);
+  color: var(--texto);
+  font-family: var(--fuente-cuerpo);
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
 }
@@ -54,13 +54,13 @@ nav.scrolled {
 }
 
 .nav-brand {
-  font-family: var(--serif);
+  font-family: var(--fuente-titulo);
   font-size: 17px;
   font-weight: 300;
-  color: var(--light);
+  color: var(--acento-secundario);
   letter-spacing: 0.5px;
 }
-.nav-brand em { font-style: italic; color: var(--gold); }
+.nav-brand em { font-style: italic; color: var(--acento); }
 
 .nav-links {
   display: flex;
@@ -71,23 +71,23 @@ nav.scrolled {
   font-size: 9px;
   letter-spacing: 3.5px;
   text-transform: uppercase;
-  color: var(--light-dim);
+  color: var(--texto-dim);
   text-decoration: none;
   transition: color 0.25s;
 }
-.nav-links a:hover { color: var(--gold); }
+.nav-links a:hover { color: var(--acento); }
 
 .nav-cta {
   font-size: 9px;
   letter-spacing: 2.5px;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--acento);
   text-decoration: none;
-  border: 1px solid var(--gold-mid);
+  border: 1px solid var(--acento-mid);
   padding: 8px 16px;
   transition: background 0.25s, color 0.25s;
 }
-.nav-cta:hover { background: var(--gold); color: var(--dark); }
+.nav-cta:hover { background: var(--acento); color: var(--fondo); }
 
 /* ── HERO VIDEO ── */
 .hero {
@@ -142,27 +142,27 @@ nav.scrolled {
   font-size: 9px;
   letter-spacing: 4px;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--acento);
 }
 
 .hero-line {
   width: 40px; height: 1px;
-  background: var(--gold);
+  background: var(--acento);
   opacity: 0.6;
 }
 
 .hero-title {
-  font-family: var(--serif);
+  font-family: var(--fuente-titulo);
   font-size: clamp(58px, 9vw, 116px);
   font-weight: 300;
   line-height: 0.88;
-  color: var(--light);
+  color: var(--acento-secundario);
   letter-spacing: -2px;
   margin-bottom: 28px;
 }
 .hero-title em {
   font-style: italic;
-  color: var(--gold);
+  color: var(--acento);
   display: block;
 }
 
@@ -170,8 +170,8 @@ nav.scrolled {
   font-size: 10px;
   letter-spacing: 3px;
   text-transform: uppercase;
-  color: var(--dark);
-  background: var(--gold);
+  color: var(--fondo);
+  background: var(--acento);
   padding: 14px 28px;
   text-decoration: none;
   display: inline-block;
@@ -183,31 +183,31 @@ section { padding: 100px 5vw; }
   font-size: 9px;
   letter-spacing: 4px;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--acento);
   margin-bottom: 14px;
   display: block;
 }
 .s-title {
-  font-family: var(--serif);
+  font-family: var(--fuente-titulo);
   font-size: clamp(38px, 5.5vw, 68px);
   font-weight: 300;
-  color: var(--light);
+  color: var(--acento-secundario);
   line-height: 1.02;
   margin-bottom: 56px;
   letter-spacing: -1px;
 }
 
 /* ── SECCION: PROYECTO INTERACTIVO ── */
-#proyecto { background: var(--dark-2); }
+#proyecto { background: var(--fondo-2); }
 
 .interactive-plan-container {
   position: relative;
   width: 100%;
   max-width: 1100px;
   margin: 0 auto;
-  border: 1px solid var(--gold-mid);
+  border: 1px solid var(--acento-mid);
   padding: 10px;
-  background: var(--dark-3);
+  background: var(--fondo-3);
   overflow: hidden;
 }
 
@@ -235,7 +235,7 @@ section { padding: 100px 5vw; }
   position: absolute;
   width: 24px;
   height: 24px;
-  background: var(--gold);
+  background: var(--acento);
   border-radius: 50%;
   transform: translate(-50%, -50%);
   cursor: pointer;
@@ -243,7 +243,7 @@ section { padding: 100px 5vw; }
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--dark);
+  color: var(--fondo);
   font-weight: bold;
   font-size: 14px;
   animation: marker-zoom 2.5s ease-in-out infinite;
@@ -251,7 +251,7 @@ section { padding: 100px 5vw; }
 }
 
 .hotspot:hover, .hotspot.active {
-  background: var(--light);
+  background: var(--acento-secundario);
   transform: translate(-50%, -50%) scale(1.15);
   animation: none;
 }
@@ -261,8 +261,8 @@ section { padding: 100px 5vw; }
   display: none;
   grid-template-columns: 1fr 1fr;
   gap: 40px;
-  background: var(--dark-3);
-  border: 1px solid var(--gold-dim);
+  background: var(--fondo-3);
+  border: 1px solid var(--acento-dim);
   padding: 40px;
   margin-top: 20px;
   animation: fadeIn 0.5s ease-out;
@@ -278,23 +278,23 @@ section { padding: 100px 5vw; }
   width: 100%;
   height: 300px;
   object-fit: cover;
-  border-bottom: 2px solid var(--gold);
+  border-bottom: 2px solid var(--acento);
 }
 
 .sector-info h3 {
-  font-family: var(--serif);
+  font-family: var(--fuente-titulo);
   font-size: 32px;
-  color: var(--gold);
+  color: var(--acento);
   margin-bottom: 10px;
 }
 
 .sector-costo {
   font-size: 24px;
-  color: var(--light);
+  color: var(--acento-secundario);
   margin-bottom: 20px;
-  font-family: var(--serif);
+  font-family: var(--fuente-titulo);
   padding-bottom: 15px;
-  border-bottom: 1px solid var(--gold-dim);
+  border-bottom: 1px solid var(--acento-dim);
 }
 
 .sector-caracteristicas {
@@ -308,33 +308,33 @@ section { padding: 100px 5vw; }
 }
 .sector-caracteristicas li::before {
   content: '◆';
-  color: var(--gold);
+  color: var(--acento);
   font-size: 10px;
   margin-top: 2px;
 }
 
 /* ── SECCION: GALERIA ── */
-#galeria { background: var(--dark); padding-bottom: 0; }
+#galeria { background: var(--fondo); padding-bottom: 0; }
 .galeria-track {
   display: flex;
   gap: 12px;
   overflow-x: auto;
   padding-bottom: 80px;
   scrollbar-width: thin;
-  scrollbar-color: var(--gold) var(--dark-3);
+  scrollbar-color: var(--acento) var(--fondo-3);
 }
 
 .galeria-card {
   flex: 0 0 500px;
   height: 380px;
-  background: var(--dark-3);
+  background: var(--fondo-3);
   position: relative;
 }
 
 .galeria-card img {
   width: 100%; height: 100%;
   object-fit: contain; /* Imagen apaisada se verá entera sin cortes */
-  background: var(--dark-4);
+  background: var(--fondo-4);
 }
 
 .galeria-card-label {
@@ -345,24 +345,24 @@ section { padding: 100px 5vw; }
   font-size: 9px;
   letter-spacing: 2.5px;
   text-transform: uppercase;
-  color: var(--light);
+  color: var(--acento-secundario);
 }
 
 /* ── SECCION: PRESUPUESTO TABS ── */
-#presupuesto { background: var(--dark-2); }
+#presupuesto { background: var(--fondo-2); }
 
 .tabs {
   display: flex;
   gap: 10px;
-  border-bottom: 1px solid var(--gold-mid);
+  border-bottom: 1px solid var(--acento-mid);
   margin-bottom: 30px;
 }
 
 .tab-btn {
   background: transparent;
   border: none;
-  color: var(--light-dim);
-  font-family: var(--mono);
+  color: var(--texto-dim);
+  font-family: var(--fuente-cuerpo);
   font-size: 12px;
   letter-spacing: 2px;
   text-transform: uppercase;
@@ -371,11 +371,11 @@ section { padding: 100px 5vw; }
   transition: color 0.3s, background 0.3s;
 }
 
-.tab-btn:hover { color: var(--gold); }
+.tab-btn:hover { color: var(--acento); }
 .tab-btn.active {
-  color: var(--gold);
-  border-bottom: 2px solid var(--gold);
-  background: var(--dark-3);
+  color: var(--acento);
+  border-bottom: 2px solid var(--acento);
+  background: var(--fondo-3);
 }
 
 .tab-content { display: none; }
@@ -384,7 +384,7 @@ section { padding: 100px 5vw; }
 .rubros-table { width: 100%; border-collapse: collapse; }
 .rubros-thead th {
   font-size: 9px; letter-spacing: 3px;
-  text-transform: uppercase; color: var(--gold);
+  text-transform: uppercase; color: var(--acento);
   padding: 15px 0; text-align: left;
   border-bottom: 1px solid rgba(201,168,76,0.25);
 }
@@ -394,7 +394,7 @@ section { padding: 100px 5vw; }
 .rubros-tbody td {
   padding: 15px 0; font-size: 12px;
 }
-.rubros-tbody td.num { text-align: right; font-family: var(--serif); font-size: 16px; color: var(--light); }
+.rubros-tbody td.num { text-align: right; font-family: var(--fuente-titulo); font-size: 16px; color: var(--acento-secundario); }
 
 .resumen-cards {
   display: grid;
@@ -403,34 +403,34 @@ section { padding: 100px 5vw; }
   margin-top: 30px;
 }
 .resumen-card {
-  background: var(--dark-3); padding: 25px;
-  border-left: 2px solid var(--gold);
+  background: var(--fondo-3); padding: 25px;
+  border-left: 2px solid var(--acento);
 }
-.resumen-card-label { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
-.resumen-card-valor { font-family: var(--serif); font-size: 26px; color: var(--light); }
+.resumen-card-label { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--acento); margin-bottom: 10px; }
+.resumen-card-valor { font-family: var(--fuente-titulo); font-size: 26px; color: var(--acento-secundario); }
 
 
 /* ── SECCION: FEEDBACK ── */
 #contacto {
-  background: var(--dark);
+  background: var(--fondo);
 }
 
 .feedback-container {
   max-width: 600px;
-  background: var(--dark-3);
+  background: var(--fondo-3);
   padding: 50px;
-  border: 1px solid var(--gold-dim);
+  border: 1px solid var(--acento-dim);
 }
 
 .form-group { margin-bottom: 25px; }
 .form-group label {
-  display: block; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 10px;
+  display: block; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--acento); margin-bottom: 10px;
 }
 .form-control {
-  width: 100%; background: var(--dark-4); border: 1px solid rgba(201,168,76,0.2);
-  color: var(--light); padding: 15px; font-family: var(--mono); font-size: 14px;
+  width: 100%; background: var(--fondo-4); border: 1px solid rgba(201,168,76,0.2);
+  color: var(--acento-secundario); padding: 15px; font-family: var(--fuente-cuerpo); font-size: 14px;
 }
-.form-control:focus { outline: none; border-color: var(--gold); }
+.form-control:focus { outline: none; border-color: var(--acento); }
 textarea.form-control { resize: vertical; min-height: 120px; }
 
 /* Responsive */
@@ -438,6 +438,22 @@ textarea.form-control { resize: vertical; min-height: 120px; }
   .sector-panel { grid-template-columns: 1fr; }
   .resumen-cards { grid-template-columns: 1fr; }
 }
+</style>
+
+<!--
+  ── BRAND VARIABLES (inyectadas desde proyecto.json por el Agente 3) ──
+  Este bloque se sobreescribe en tiempo de build con los valores de
+  proyecto.json.marca. El :root de arriba actua como fallback visual
+  durante el desarrollo. En produccion, los valores se duplican aca
+  con los colores del arquitecto (dark-gold, light-marble, bauhaus, custom).
+-->
+<style id="brand-vars">
+  /* Inyeccion dinamica pendiente. Valores por defecto (dark-gold): */
+  :root {
+    --acento: #C9A84C;
+    --fondo: #080808;
+    --texto: #cac6be;
+  }
 </style>
 </head>
 <body>
@@ -470,7 +486,7 @@ textarea.form-control { resize: vertical; min-height: 120px; }
 <!-- SECCIÓN PROYECTO INTERACTIVO -->
 <section id="proyecto">
   <span class="s-tag">01 — Detalles por Sector</span>
-  <h2 class="s-title">Planimetría<br><em style="font-style:italic; color:var(--gold)">Interactiva</em></h2>
+  <h2 class="s-title">Planimetría<br><em style="font-style:italic; color:var(--acento)">Interactiva</em></h2>
   
   <div class="interactive-plan-container">
     <div class="interactive-plan">
@@ -562,7 +578,7 @@ textarea.form-control { resize: vertical; min-height: 120px; }
 <!-- PRESUPUESTO CON PESTAÑAS -->
 <section id="presupuesto">
   <span class="s-tag">03 — Análisis Económico</span>
-  <h2 class="s-title">Desglose de<br><em style="font-style:italic; color:var(--gold)">Costos</em></h2>
+  <h2 class="s-title">Desglose de<br><em style="font-style:italic; color:var(--acento)">Costos</em></h2>
   
   <div class="tabs">
     <button class="tab-btn active" data-tab="tab-rubros">Rubros Constructivos</button>
@@ -625,10 +641,10 @@ textarea.form-control { resize: vertical; min-height: 120px; }
 <!-- FEEDBACK Y COMENTARIOS -->
 <section id="contacto">
   <span class="s-tag">04 — Interacción</span>
-  <h2 class="s-title">Comentarios y<br><em style="font-style:italic; color:var(--gold)">Feedback</em></h2>
+  <h2 class="s-title">Comentarios y<br><em style="font-style:italic; color:var(--acento)">Feedback</em></h2>
   
   <div class="feedback-container">
-    <p style="font-family: var(--serif); font-size: 18px; color: var(--light-dim); margin-bottom: 30px;">
+    <p style="font-family: var(--fuente-titulo); font-size: 18px; color: var(--texto-dim); margin-bottom: 30px;">
       ¿Alguna observación sobre la distribución, terminaciones o el presupuesto de la unidad? Déjanos tus comentarios.
     </p>
     <div class="form-group">

@@ -13,9 +13,11 @@
     "ubicacion": "Tucumán, NOA",
     "año": "2025",
     "estado": "Proyecto ejecutivo",
-    "email": "soyleo.ai.arq@gmail.com",
-    "instagram": "@soy.leo_ai",
-    "web": "soyleoai.com",
+    "contacto": {
+      "email": "soyleo.ai.arq@gmail.com",
+      "instagram": "@soy.leo_ai",
+      "web": "soyleoai.com"
+    },
     "assets": {
       "video_hero": "assets/video.mp4",
       "imagen_principal": "assets/planta3d.png",
@@ -27,6 +29,94 @@
       ]
     }
   },
+
+  "marca": {
+    "preset": "dark-gold",
+    "color_acento": "#C9A84C",
+    "color_fondo": "#080808",
+    "color_texto": "#cac6be",
+    "color_acento_secundario": "#ede9e0",
+    "fuente_titulo": "Cormorant Garamond",
+    "fuente_cuerpo": "DM Mono",
+    "logo": "assets/logo.svg"
+  },
+
+  "edificio": {
+    "tipo": "mono_piso",
+    "pisos": [
+      {
+        "id": "principal",
+        "nombre": "Planta Principal",
+        "imagen_planta": "assets/planta3d.png",
+        "altura_metros": 2.8,
+        "sectores": ["cocina", "habitacion", "bano"]
+      }
+    ]
+  },
+
+  "sectores": [
+    {
+      "id": "cocina",
+      "nombre": "Cocina y Comedor",
+      "piso_id": "principal",
+      "hotspot": { "x": 63, "y": 63 },
+      "render": "assets/cocina-comedor.png",
+      "tour_360": null,
+      "costo": 8500000,
+      "superficie_m2": 22,
+      "caracteristicas": [
+        "Mobiliario en melamina texturizada.",
+        "Mesada de granito Negro Absoluto.",
+        "Piso de porcelanato simil madera.",
+        "Instalación de gas y eléctrica terminada para electrodomésticos."
+      ],
+      "materiales": [
+        { "nombre": "Granito Negro Absoluto", "proveedor": "Marmolería local" },
+        { "nombre": "Porcelanato símil madera", "marca": "Cerro Negro" }
+      ]
+    },
+    {
+      "id": "habitacion",
+      "nombre": "Dormitorio Principal",
+      "piso_id": "principal",
+      "hotspot": { "x": 33, "y": 37 },
+      "render": "assets/habitacion.png",
+      "tour_360": null,
+      "costo": 5200000,
+      "superficie_m2": 16,
+      "caracteristicas": [
+        "Placard empotrado de pared a pared.",
+        "Piso flotante de alto tránsito.",
+        "Aberturas DVH (Doble Vidrio Hermético)."
+      ],
+      "materiales": [
+        { "nombre": "Piso flotante alto tránsito", "marca": "Egger" },
+        { "nombre": "Aberturas DVH", "marca": "Aluminio Rotonda" }
+      ]
+    },
+    {
+      "id": "bano",
+      "nombre": "Baño Completo",
+      "piso_id": "principal",
+      "hotspot": { "x": 70, "y": 42 },
+      "render": "assets/baño.png",
+      "tour_360": null,
+      "costo": 3800000,
+      "superficie_m2": 6,
+      "caracteristicas": [
+        "Revestimientos de pared tipo Subway.",
+        "Sanitarios Ferrum y grifería FV.",
+        "Mampara de vidrio templado.",
+        "Instalación hidráulica por termofusión."
+      ],
+      "materiales": [
+        { "nombre": "Cerámica Subway", "marca": "Cerro Negro" },
+        { "nombre": "Sanitarios", "marca": "Ferrum" },
+        { "nombre": "Grifería", "marca": "FV" }
+      ]
+    }
+  ],
+
   "presupuesto": {
     "rubros": [
       { "numero": "01", "nombre": "Trabajos Preparatorios", "materiales": 1050400, "mano_de_obra": 1575600, "total": 2626000, "incidencia": "2,0%" },
@@ -52,5 +142,15 @@
       "costo_depto": 32810000
     },
     "nota": "Presupuesto GLOBAL orientativo (Base NOA 2025). No incluye honorarios profesionales ni IVA."
+  },
+
+  "features": {
+    "exploded_view": true,
+    "tour_360": true,
+    "donut_presupuesto": true,
+    "modal_teatro": true,
+    "cursor_custom": true,
+    "loader_marca": true,
+    "smooth_scroll": true
   }
 }
