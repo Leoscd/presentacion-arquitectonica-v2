@@ -439,6 +439,198 @@ textarea.form-control { resize: vertical; min-height: 120px; }
   .resumen-cards { grid-template-columns: 1fr; }
 }
 
+/* ── MODAL TEATRO (v2 - Fase 2) ── */
+#theater-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 5000;
+  background: rgba(0,0,0,0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 5vh 5vw;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+#theater-modal.active { display: flex; opacity: 1; }
+
+.theater-content {
+  background: var(--fondo-3);
+  border: 1px solid var(--acento-mid);
+  width: 100%;
+  max-width: 1100px;
+  max-height: 90vh;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  overflow: hidden;
+  animation: theater-in 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+}
+@keyframes theater-in {
+  from { opacity: 0; transform: translateY(20px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+.theater-visual {
+  background: var(--fondo-2);
+  display: flex; align-items: center; justify-content: center;
+  min-height: 400px;
+  overflow: hidden;
+}
+.theater-visual img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  max-height: 80vh;
+}
+.theater-info {
+  padding: 50px 40px;
+  overflow-y: auto;
+  display: flex; flex-direction: column;
+}
+.theater-info h3 {
+  font-family: var(--fuente-titulo);
+  font-size: 36px;
+  font-weight: 300;
+  color: var(--acento);
+  margin-bottom: 12px;
+  line-height: 1.1;
+}
+.theater-info .theater-eyebrow {
+  font-size: 9px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--texto-dim);
+  margin-bottom: 6px;
+}
+.theater-costo {
+  font-family: var(--fuente-titulo);
+  font-size: 28px;
+  color: var(--acento-secundario);
+  margin-bottom: 30px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--acento-dim);
+}
+.theater-section-label {
+  font-size: 9px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--acento);
+  margin: 18px 0 12px;
+  display: block;
+}
+.theater-caracteristicas {
+  list-style: none;
+  margin-bottom: 24px;
+}
+.theater-caracteristicas li {
+  font-size: 13px;
+  margin-bottom: 8px;
+  display: flex; gap: 10px;
+  color: var(--texto);
+}
+.theater-caracteristicas li::before {
+  content: '◆';
+  color: var(--acento);
+  font-size: 9px;
+  margin-top: 3px;
+  flex-shrink: 0;
+}
+.theater-materiales {
+  display: flex; flex-direction: column;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+.theater-material {
+  display: flex; justify-content: space-between;
+  padding: 8px 12px;
+  background: var(--fondo-2);
+  border-left: 2px solid var(--acento);
+  font-size: 12px;
+}
+.theater-material .material-nombre { color: var(--acento-secundario); }
+.theater-material .material-marca { color: var(--texto-dim); font-size: 11px; }
+.theater-nav {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-top: auto;
+  padding-top: 24px;
+  border-top: 1px solid var(--acento-dim);
+}
+.theater-nav-btn {
+  background: transparent;
+  border: 1px solid var(--acento-mid);
+  color: var(--acento);
+  padding: 10px 18px;
+  font-family: var(--fuente-cuerpo);
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.25s;
+}
+.theater-nav-btn:hover {
+  background: var(--acento);
+  color: var(--fondo);
+}
+.theater-nav-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+.theater-counter {
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: var(--texto-dim);
+}
+.theater-close {
+  position: absolute;
+  top: 16px; right: 16px;
+  width: 36px; height: 36px;
+  background: var(--fondo-2);
+  border: 1px solid var(--acento-mid);
+  color: var(--acento);
+  font-size: 18px;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  z-index: 2;
+  transition: all 0.25s;
+}
+.theater-close:hover { background: var(--acento); color: var(--fondo); }
+.theater-tour-btn {
+  display: inline-block;
+  background: transparent;
+  border: 1px solid var(--acento);
+  color: var(--acento);
+  padding: 10px 18px;
+  font-family: var(--fuente-cuerpo);
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  text-decoration: none;
+  margin-bottom: 16px;
+  text-align: center;
+  transition: all 0.25s;
+}
+.theater-tour-btn:hover { background: var(--acento); color: var(--fondo); }
+.theater-tour-360 {
+  display: none;
+  width: 100%;
+  height: 400px;
+  background: var(--fondo-2);
+}
+.theater-tour-360.active { display: block; }
+
+@media (max-width: 900px) {
+  .theater-content {
+    grid-template-columns: 1fr;
+    max-height: 95vh;
+  }
+  .theater-visual { min-height: 250px; }
+  .theater-info { padding: 30px 24px; }
+  .theater-info h3 { font-size: 26px; }
+  .theater-costo { font-size: 22px; }
+}
+
 /* ── LOADER CINEMATOGRAFICO (v2) ── */
 #loader {
   position: fixed;
@@ -792,27 +984,190 @@ body { cursor: none; }
 </section>
 
 <script>
-// Manejo de Hotspots en la Planimetría
-const hotspots = document.querySelectorAll('.hotspot');
-const panels = document.querySelectorAll('.sector-panel');
+// ── MODAL TEATRO + HOTSPOTS DINAMICOS (v2 - Fase 2) ──
+//
+// Estado global de sectores cargado desde proyecto.json.
+// Si el JSON tiene bloque `sectores[]`, los renderizamos.
+// Si no, mantenemos los hardcodeados en HTML como fallback.
 
-hotspots.forEach(hotspot => {
-  hotspot.addEventListener('click', () => {
-    // Resetear hotspots
-    hotspots.forEach(h => h.classList.remove('active'));
-    // Ocultar paneles
-    panels.forEach(p => p.classList.remove('active'));
-    
-    // Activar clickeado
-    hotspot.classList.add('active');
-    const target = document.getElementById(hotspot.dataset.target);
-    if (target) {
-      target.classList.add('active');
-      // Scroll al panel
-      target.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+let STATE = {
+  sectores: [],
+  index: 0,
+  modal: null,
+  modalVisual: null,
+  modalInfo: null,
+  modalClose: null
+};
+
+function formatARS(n) {
+  return '$ ' + Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+}
+
+function openTheater(idx) {
+  const s = STATE.sectores[idx];
+  if (!s) return;
+  STATE.index = idx;
+
+  // Visual: render (puede ser imagen o panorama)
+  STATE.modalVisual.innerHTML = s.tour_360
+    ? `<div class="theater-tour-360 active" id="theater-tour-instance"></div>`
+    : `<img src="${s.render}" alt="${s.nombre}">`;
+
+  // Si hay tour 360, lo inicializamos con Pannellum (carga lazy)
+  if (s.tour_360) {
+    setTimeout(() => {
+      if (typeof pannellum !== 'undefined' && window.pannellum) {
+        window.pannellum.viewer('theater-tour-instance', {
+          type: 'equirectangular',
+          panorama: s.tour_360,
+          autoLoad: true,
+          autoRotate: -2,
+          compass: false,
+          hfov: 100
+        });
+      } else {
+        // Fallback: solo imagen
+        STATE.modalVisual.innerHTML = `<img src="${s.tour_360}" alt="${s.nombre} (tour 360 no disponible, fallback a imagen)">`;
+      }
+    }, 50);
+  }
+
+  // Info: datos del sector
+  const caracteristicas = (s.caracteristicas || []).map(c => `<li>${c}</li>`).join('');
+  const materiales = (s.materiales || []).map(m => `
+    <div class="theater-material">
+      <span class="material-nombre">${m.nombre}</span>
+      <span class="material-marca">${m.marca || m.proveedor || ''}</span>
+    </div>
+  `).join('');
+
+  const tourBtn = s.tour_360
+    ? `<button class="theater-tour-btn" data-action="toggle-tour">Ver Tour 360°</button>`
+    : '';
+
+  STATE.modalInfo.innerHTML = `
+    <span class="theater-eyebrow">Sector ${idx + 1} de ${STATE.sectores.length}</span>
+    <h3 id="theater-title">${s.nombre}</h3>
+    <div class="theater-costo">${formatARS(s.costo || 0)}</div>
+    ${tourBtn}
+    ${caracteristicas ? `<span class="theater-section-label">Características</span><ul class="theater-caracteristicas">${caracteristicas}</ul>` : ''}
+    ${materiales ? `<span class="theater-section-label">Materiales</span><div class="theater-materiales">${materiales}</div>` : ''}
+    <div class="theater-nav">
+      <button class="theater-nav-btn" data-action="prev" ${idx === 0 ? 'disabled' : ''}>← Anterior</button>
+      <span class="theater-counter">${idx + 1} / ${STATE.sectores.length}</span>
+      <button class="theater-nav-btn" data-action="next" ${idx === STATE.sectores.length - 1 ? 'disabled' : ''}>Siguiente →</button>
+    </div>
+  `;
+
+  // Eventos de los botones internos
+  STATE.modalInfo.querySelector('[data-action="prev"]')?.addEventListener('click', () => openTheater(STATE.index - 1));
+  STATE.modalInfo.querySelector('[data-action="next"]')?.addEventListener('click', () => openTheater(STATE.index + 1));
+  STATE.modalInfo.querySelector('[data-action="toggle-tour"]')?.addEventListener('click', e => {
+    const t360 = STATE.modalVisual.querySelector('.theater-tour-360');
+    if (t360) {
+      t360.classList.toggle('active');
+      e.target.textContent = t360.classList.contains('active') ? 'Ver Render' : 'Ver Tour 360°';
     }
   });
-});
+
+  // Mostrar modal
+  STATE.modal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeTheater() {
+  STATE.modal.classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+// Inicializacion
+function initTheater(sectores) {
+  STATE.sectores = sectores;
+  STATE.modal = document.getElementById('theater-modal');
+  STATE.modalVisual = document.getElementById('theater-visual');
+  STATE.modalInfo = document.getElementById('theater-info');
+  STATE.modalClose = STATE.modal.querySelector('.theater-close');
+
+  // Cerrar modal: click en backdrop, ESC, o boton X
+  STATE.modal.addEventListener('click', e => {
+    if (e.target === STATE.modal) closeTheater();
+  });
+  STATE.modalClose.addEventListener('click', closeTheater);
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && STATE.modal.classList.contains('active')) closeTheater();
+    if (e.key === 'ArrowLeft' && STATE.modal.classList.contains('active')) openTheater(STATE.index - 1);
+    if (e.key === 'ArrowRight' && STATE.modal.classList.contains('active')) openTheater(STATE.index + 1);
+  });
+
+  // Hotspots: si los hay hardcodeados, los conectamos
+  document.querySelectorAll('.hotspot').forEach(hs => {
+    hs.addEventListener('click', () => {
+      const idx = parseInt(hs.dataset.sectorIndex, 10);
+      if (!isNaN(idx)) openTheater(idx);
+    });
+  });
+}
+
+// Cargar sectores desde proyecto.json y renderizar hotspots dinamicos
+(async function loadSectores() {
+  try {
+    const res = await fetch('proyecto.json', { cache: 'no-cache' });
+    if (!res.ok) throw new Error('Fetch fail');
+    const data = await res.json();
+    if (data.sectores && Array.isArray(data.sectores) && data.sectores.length) {
+      // Hay sectores en JSON: generar hotspots dinamicos
+      const planContainer = document.querySelector('.interactive-plan');
+      if (planContainer) {
+        // Quitar hotspots hardcodeados
+        planContainer.querySelectorAll('.hotspot').forEach(h => h.remove());
+        // Generar hotspots desde JSON
+        data.sectores.forEach((s, idx) => {
+          if (!s.hotspot) return;
+          const dot = document.createElement('div');
+          dot.className = 'hotspot';
+          dot.style.top = s.hotspot.y + '%';
+          dot.style.left = s.hotspot.x + '%';
+          dot.dataset.sectorIndex = idx;
+          dot.textContent = '+';
+          planContainer.appendChild(dot);
+          dot.addEventListener('click', () => openTheater(idx));
+        });
+      }
+      initTheater(data.sectores);
+    } else {
+      // Fallback: no hay sectores en JSON, usar el primer sector si existe hardcodeado
+      const hardcodedSectores = [
+        { id: 'cocina', nombre: 'Cocina y Comedor', render: 'assets/cocina-comedor.png', costo: 8500000, caracteristicas: ['Mobiliario en melamina texturizada.', 'Mesada de granito Negro Absoluto.', 'Piso de porcelanato simil madera.', 'Instalación de gas y eléctrica terminada para electrodomésticos.'] },
+        { id: 'habitacion', nombre: 'Dormitorio Principal', render: 'assets/habitacion.png', costo: 5200000, caracteristicas: ['Placard empotrado de pared a pared.', 'Piso flotante de alto tránsito.', 'Aberturas DVH (Doble Vidrio Hermético).'] },
+        { id: 'bano', nombre: 'Baño Completo', render: 'assets/baño.png', costo: 3800000, caracteristicas: ['Revestimientos de pared tipo Subway.', 'Sanitarios Ferrum y grifería FV.', 'Mampara de vidrio templado.', 'Instalación hidráulica por termofusión.'] }
+      ];
+      const planContainer = document.querySelector('.interactive-plan');
+      if (planContainer) {
+        planContainer.querySelectorAll('.hotspot').forEach((h, idx) => {
+          h.dataset.sectorIndex = idx;
+          h.addEventListener('click', () => openTheater(idx));
+        });
+      }
+      initTheater(hardcodedSectores);
+    }
+  } catch (e) {
+    console.warn('[sectores] No se pudo cargar JSON, usando fallback hardcodeado:', e.message);
+    // Fallback silencioso al v1
+    const hardcodedSectores = [
+      { id: 'cocina', nombre: 'Cocina y Comedor', render: 'assets/cocina-comedor.png', costo: 8500000, caracteristicas: ['Mobiliario en melamina texturizada.'] },
+      { id: 'habitacion', nombre: 'Dormitorio Principal', render: 'assets/habitacion.png', costo: 5200000, caracteristicas: ['Placard empotrado.'] },
+      { id: 'bano', nombre: 'Baño Completo', render: 'assets/baño.png', costo: 3800000, caracteristicas: ['Sanitarios Ferrum.'] }
+    ];
+    const planContainer = document.querySelector('.interactive-plan');
+    if (planContainer) {
+      planContainer.querySelectorAll('.hotspot').forEach((h, idx) => {
+        h.dataset.sectorIndex = idx;
+        h.addEventListener('click', () => openTheater(idx));
+      });
+    }
+    initTheater(hardcodedSectores);
+  }
+})();
 
 // Manejo de Pestañas en Presupuesto
 const tabBtns = document.querySelectorAll('.tab-btn');
@@ -886,5 +1241,13 @@ if (typeof Lenis !== 'undefined' && !window.matchMedia('(prefers-reduced-motion:
 </script>
 
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
+
+<div id="theater-modal" role="dialog" aria-modal="true" aria-labelledby="theater-title">
+  <div class="theater-content">
+    <button class="theater-close" aria-label="Cerrar">&times;</button>
+    <div class="theater-visual" id="theater-visual"></div>
+    <div class="theater-info" id="theater-info"></div>
+  </div>
+</div>
 </body>
 </html>
