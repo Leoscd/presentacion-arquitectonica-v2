@@ -871,6 +871,20 @@ if (cursor && window.matchMedia('(min-width: 901px)').matches) {
     if (e.target.closest(interactivos)) cursor.classList.remove('hover');
   });
 }
+
+// ── v2: SMOOTH SCROLL con Lenis (Fase 2) ──
+if (typeof Lenis !== 'undefined' && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  const lenis = new Lenis({
+    duration: 1.2,
+    easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+    smoothWheel: true
+  });
+  function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+  requestAnimationFrame(raf);
+  window.addEventListener('load', () => lenis.resize());
+}
 </script>
+
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
 </body>
 </html>
