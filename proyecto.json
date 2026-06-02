@@ -1,0 +1,56 @@
+{
+  "proyecto": {
+    "nombre": "Casa Rogeris",
+    "subtitulo": "Complejo 4 Departamentos — Steel Frame",
+    "descripcion": "Desarrollo de tipología residencial colectiva en sistema Steel Frame. El proyecto optimiza 193 m² totales divididos en 4 unidades funcionales de 42 m² cada una, conectadas por una pasarela y escalera metálica de diseño industrial.",
+    "arquitecto": "Arq. Leonardo Diaz",
+    "estudio": "SoyLeo AI",
+    "superficie_total": "193 m²",
+    "superficie_deptos": "168 m²",
+    "superficie_pasarela": "25 m²",
+    "unidades": "4 x 42 m²",
+    "sistema": "Steel Frame",
+    "ubicacion": "Tucumán, NOA",
+    "año": "2025",
+    "estado": "Proyecto ejecutivo",
+    "email": "soyleo.ai.arq@gmail.com",
+    "instagram": "@soy.leo_ai",
+    "web": "soyleoai.com",
+    "assets": {
+      "video_hero": "assets/video.mp4",
+      "imagen_principal": "assets/planta3d.png",
+      "galeria": [
+        { "nombre": "Planta General 3D", "url": "assets/planta3d.png" },
+        { "nombre": "Cocina - Comedor", "url": "assets/cocina-comedor.png" },
+        { "nombre": "Habitación Principal", "url": "assets/habitacion.png" },
+        { "nombre": "Baño Terminado", "url": "assets/baño.png" }
+      ]
+    }
+  },
+  "presupuesto": {
+    "rubros": [
+      { "numero": "01", "nombre": "Trabajos Preparatorios", "materiales": 1050400, "mano_de_obra": 1575600, "total": 2626000, "incidencia": "2,0%" },
+      { "numero": "02", "nombre": "Fundaciones", "materiales": 6846400, "mano_de_obra": 3687600, "total": 10534000, "incidencia": "8,0%" },
+      { "numero": "03", "nombre": "Estructura Steel Frame", "materiales": 17380800, "mano_de_obra": 11587200, "total": 28968000, "incidencia": "22,0%" },
+      { "numero": "04", "nombre": "Cerramiento exterior", "materiales": 7398400, "mano_de_obra": 3171600, "total": 10570000, "incidencia": "8,0%" },
+      { "numero": "05", "nombre": "Terminación exterior", "materiales": 3281250, "mano_de_obra": 3281250, "total": 6562500, "incidencia": "5,0%" },
+      { "numero": "06", "nombre": "Tabiquería interior", "materiales": 4737600, "mano_de_obra": 3158400, "total": 7896000, "incidencia": "6,0%" },
+      { "numero": "07", "nombre": "Pisos y revestimientos", "materiales": 5997150, "mano_de_obra": 3229350, "total": 9226500, "incidencia": "7,0%" },
+      { "numero": "08", "nombre": "Instalación eléctrica", "materiales": 4356300, "mano_de_obra": 3564700, "total": 7921000, "incidencia": "6,0%" },
+      { "numero": "09", "nombre": "Instalación sanitaria", "materiales": 5082350, "mano_de_obra": 4158650, "total": 9241000, "incidencia": "7,0%" },
+      { "numero": "10", "nombre": "Cubierta / Losa SF", "materiales": 6862400, "mano_de_obra": 3697600, "total": 10560000, "incidencia": "8,0%" },
+      { "numero": "11", "nombre": "Carpintería", "materiales": 8976000, "mano_de_obra": 1584000, "total": 10560000, "incidencia": "8,0%" },
+      { "numero": "12", "nombre": "Pasarela y escalera", "materiales": 4620000, "mano_de_obra": 1980000, "total": 6600000, "incidencia": "5,0%" },
+      { "numero": "13", "nombre": "Pintura interior", "materiales": 1584000, "mano_de_obra": 2376000, "total": 3960000, "incidencia": "3,0%" },
+      { "numero": "14", "nombre": "Varios y gastos grales", "materiales": 3281250, "mano_de_obra": 3281250, "total": 6562500, "incidencia": "5,0%" }
+    ],
+    "totales": {
+      "materiales": 81453300,
+      "mano_de_obra": 50133200,
+      "total_obra": 131240000,
+      "costo_m2": 680000,
+      "costo_depto": 32810000
+    },
+    "nota": "Presupuesto GLOBAL orientativo (Base NOA 2025). No incluye honorarios profesionales ni IVA."
+  }
+}

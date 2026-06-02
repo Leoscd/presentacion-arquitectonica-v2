@@ -1,0 +1,11 @@
+# Gitignore para Template Arq
+.DS_Store
+Thumbs.db
+node_modules/
+.gemini/
+.agent/
+.agents/
+*.log
+tmp/
+C:/Users/leona/.gemini/antigravity/brain/
+# No ignoramos assets porque son parte de la estructura base (ejemplos)

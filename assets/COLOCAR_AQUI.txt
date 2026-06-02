@@ -1,0 +1,14 @@
+Colocar en esta carpeta los siguientes archivos con exactamente estos nombres:
+
+  video.mp4           <- video del proyecto (hero principal)
+  planta3d.png        <- vista 3D general del conjunto
+  cocina-comedor.png  <- render cocina / comedor
+  habitacion.png      <- render habitacion principal
+  baño.png            <- render baño
+
+Los archivos deben estar directamente en esta carpeta assets/
+(no en subcarpetas)
+
+Para otro proyecto: reemplazar con tus propias imagenes y video,
+manteniendo los mismos nombres, O editar proyecto.json con los nuevos nombres
+y regenerar index.html con Claude Code.
