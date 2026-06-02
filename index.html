@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Casa Rogeris — Proyecto Interactivo</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<link id="google-fonts" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
 <style>
 /* ── VARIABLES ── */
 :root {
@@ -455,6 +455,70 @@ textarea.form-control { resize: vertical; min-height: 120px; }
     --texto: #cac6be;
   }
 </style>
+
+<script>
+/*
+ * Inyeccion de marca desde proyecto.json.marca
+ * Se ejecuta en el head (sincronico) para evitar flash de color incorrecto.
+ * Si el fetch falla, el :root del style principal actua como fallback.
+ */
+(async function() {
+  try {
+    const res = await fetch('proyecto.json', { cache: 'no-cache' });
+    if (!res.ok) throw new Error('Fetch fallo: ' + res.status);
+    const data = await res.json();
+    const m = data.marca || {};
+    if (!m.color_acento) return;
+
+    // Calcular derivados de color
+    const hexToRgb = h => {
+      const x = h.replace('#','');
+      return [parseInt(x.slice(0,2),16), parseInt(x.slice(2,4),16), parseInt(x.slice(4,6),16)];
+    };
+    const [ar,ag,ab] = hexToRgb(m.color_acento);
+    const [fr,fg,fb] = hexToRgb(m.color_fondo);
+    const [tr,tg,tb] = hexToRgb(m.color_texto);
+
+    // Calcular fondo-2, fondo-3, fondo-4 (sutiles variantes del fondo)
+    const shade = (r,g,b,f) => `rgb(${Math.min(255,Math.round(r*f))}, ${Math.min(255,Math.round(g*f))}, ${Math.min(255,Math.round(b*f))})`;
+    const fondo2 = shade(fr,fg,fb,1.5);
+    const fondo3 = shade(fr,fg,fb,1.85);
+    const fondo4 = shade(fr,fg,fb,2.3);
+
+    const css = `
+:root {
+  --acento: ${m.color_acento};
+  --acento-dim: rgba(${ar},${ag},${ab},0.12);
+  --acento-mid: rgba(${ar},${ag},${ab},0.35);
+  --fondo: ${m.color_fondo};
+  --fondo-2: ${fondo2};
+  --fondo-3: ${fondo3};
+  --fondo-4: ${fondo4};
+  --acento-secundario: ${m.color_acento_secundario || m.color_texto};
+  --texto-dim: rgba(${tr},${tg},${tb},0.55);
+  --texto: ${m.color_texto};
+  --fuente-titulo: '${m.fuente_titulo || 'Cormorant Garamond'}', Georgia, serif;
+  --fuente-cuerpo: '${m.fuente_cuerpo || 'DM Mono'}', monospace;
+}`;
+
+    document.getElementById('brand-vars').textContent = css;
+
+    // Actualizar Google Fonts si la fuente es distinta a las default
+    const defaultFonts = ['Cormorant Garamond','DM Mono'];
+    if (m.fuente_titulo || m.fuente_cuerpo) {
+      const fuentes = [];
+      if (m.fuente_titulo && !defaultFonts.includes(m.fuente_titulo)) fuentes.push(m.fuente_titulo.replace(/ /g,'+')+':wght@300;400;600;700');
+      if (m.fuente_cuerpo && !defaultFonts.includes(m.fuente_cuerpo)) fuentes.push(m.fuente_cuerpo.replace(/ /g,'+')+':wght@300;400;500');
+      if (fuentes.length) {
+        const link = document.getElementById('google-fonts');
+        link.href = 'https://fonts.googleapis.com/css2?family=' + fuentes.join('&family=') + '&display=swap';
+      }
+    }
+  } catch (e) {
+    console.warn('[marca] Fallo inyeccion, uso fallback:', e.message);
+  }
+})();
+</script>
 </head>
 <body>
 
